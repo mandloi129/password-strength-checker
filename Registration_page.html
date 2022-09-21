@@ -1,0 +1,621 @@
+<div class="et_pb_section et_pb_section_1 et_section_regular">
+    <div class="et_pb_row et_pb_row_1">
+        <div class="et_pb_column et_pb_column_4_4 et_pb_column_1  et_pb_css_mix_blend_mode_passthrough et-last-child">
+            <div class="et_pb_module et_pb_code et_pb_code_0">
+                <div class="et_pb_code_inner"><script>
+    (function(){var w,p,q,x,J,K,L,M,N,O,P,Q,y,s,z,R,S,T,U,V,W;P=function(b){var a,d;d=[];for(a in b)d.push(a);return 0===d.length};y=function(b,a){return b.push.apply(b,a)};V=function(b,a){var d,c,e,f,g;f=b.split("");g=[];c=0;for(e=f.length;c<e;c++)d=f[c],g.push(a[d]||d);return g.join("")};R=function(b){var a,d,c,e;d=[];c=0;for(e=A.length;c<e;c++)a=A[c],y(d,a(b));return d.sort(function(b,a){return b.i-a.i||b.j-a.j})};N=function(b,a){var d,c,e,f,g,h,i;h=[];e=b.length;f=b.toLowerCase();for(d=0;0<=e?d<e:
+    d>e;0<=e?d++:d--)for(c=d;d<=e?c<e:c>e;d<=e?c++:c--)if(f.slice(d,c+1||9E9)in a)i=f.slice(d,c+1||9E9),g=a[i],h.push({pattern:"dictionary",i:d,j:c,token:b.slice(d,c+1||9E9),matched_word:i,rank:g});return h};q=function(b){var a,d,c,e,f;d={};a=1;e=0;for(f=b.length;e<f;e++)c=b[e],d[c]=a,a+=1;return d};p=function(b,a){return function(d){var c,e,f;c=N(d,a);e=0;for(f=c.length;e<f;e++)d=c[e],d.dictionary_name=b;return c}};z={a:["4","@"],b:["8"],c:["(","{","[","<"],e:["3"],g:["6","9"],i:["1","!","|"],l:["1",
+    "|","7"],o:["0"],s:["$","5"],t:["+","7"],x:["%"],z:["2"]};S=function(b){var a,d,c,e,f;d={};f=b.split("");c=0;for(e=f.length;c<e;c++)b=f[c],d[b]=!0;b={};for(a in z){e=z[a];var g=f=void 0,h=void 0,h=[];f=0;for(g=e.length;f<g;f++)c=e[f],c in d&&h.push(c);c=h;0<c.length&&(b[a]=c)}return b};Q=function(b){var a,d,c,e,f,g,h,i,j,k,l,o,n;f=function(){var a;a=[];for(e in b)a.push(e);return a}();j=[[]];d=function(a){var b,c,d,e,f,g,h,i,j;c=[];f={};i=0;for(j=a.length;i<j;i++)g=a[i],b=function(){var a,b;b=[];
+    h=0;for(a=g.length;h<a;h++)d=g[h],b.push([d,h]);return b}(),b.sort(),e=function(){var a,c;c=[];h=0;for(a=b.length;h<a;h++)d=b[h],c.push(d+","+h);return c}().join("-"),e in f||(f[e]=!0,c.push(g));return c};c=function(a){var e,f,g,h,i,k,l,n,o,m,p,q;if(a.length){f=a[0];i=a.slice(1);h=[];p=b[f];l=0;for(o=p.length;l<o;l++){a=p[l];n=0;for(m=j.length;n<m;n++){k=j[n];e=-1;g=0;for(q=k.length;0<=q?g<q:g>q;0<=q?g++:g--)if(k[g][0]===a){e=g;break}-1===e?(e=k.concat([[a,f]]),h.push(e)):(g=k.slice(0),g.splice(e,
+    1),g.push([a,f]),h.push(k),h.push(g))}}j=d(h);return c(i)}};c(f);i=[];k=0;for(o=j.length;k<o;k++){g=j[k];h={};l=0;for(n=g.length;l<n;l++)a=g[l],f=a[0],a=a[1],h[f]=a;i.push(h)}return i};U=function(b,a,d){var c,e,f,g,h,i,j,k,l,o,n,r,m;l=[];for(i=0;i<b.length-1;){j=i+1;k=null;for(o=n=0;;){c=b.charAt(j-1);h=!1;g=-1;e=a[c]||[];if(j<b.length){f=b.charAt(j);r=0;for(m=e.length;r<m;r++)if(c=e[r],g+=1,c&&-1!==c.indexOf(f)){h=!0;1===c.indexOf(f)&&(o+=1);k!==g&&(n+=1,k=g);break}}if(h)j+=1;else{2<j-i&&l.push({pattern:"spatial",
+    i:i,j:j-1,token:b.slice(i,j),graph:d,turns:n,shifted_count:o});i=j;break}}}return l};w={lower:"abcdefghijklmnopqrstuvwxyz",upper:"ABCDEFGHIJKLMNOPQRSTUVWXYZ",digits:"01234567890"};T=function(b,a){var d,c;c=[];for(d=1;1<=a?d<=a:d>=a;1<=a?d++:d--)c.push(b);return c.join("")};s=function(b,a){var d,c;for(c=[];;){d=b.match(a);if(!d)break;d.i=d.index;d.j=d.index+d[0].length-1;c.push(d);b=b.replace(d[0],T(" ",d[0].length))}return c};O=/\d{3,}/;W=/19\d\d|200\d|201\d/;M=function(b){var a,d,c,e,f,g,h,i,j,k,
+    l,o,n,r;e=[];r=s(b,/\d{4,8}/);k=0;for(o=r.length;k<o;k++){g=r[k];h=[g.i,g.j];g=h[0];h=h[1];c=b.slice(g,h+1||9E9);a=c.length;d=[];6>=c.length&&(d.push({daymonth:c.slice(2),year:c.slice(0,2),i:g,j:h}),d.push({daymonth:c.slice(0,a-2),year:c.slice(a-2),i:g,j:h}));6<=c.length&&(d.push({daymonth:c.slice(4),year:c.slice(0,4),i:g,j:h}),d.push({daymonth:c.slice(0,a-4),year:c.slice(a-4),i:g,j:h}));c=[];l=0;for(n=d.length;l<n;l++)switch(a=d[l],a.daymonth.length){case 2:c.push({day:a.daymonth[0],month:a.daymonth[1],
+    year:a.year,i:a.i,j:a.j});break;case 3:c.push({day:a.daymonth.slice(0,2),month:a.daymonth[2],year:a.year,i:a.i,j:a.j});c.push({day:a.daymonth[0],month:a.daymonth.slice(1,3),year:a.year,i:a.i,j:a.j});break;case 4:c.push({day:a.daymonth.slice(0,2),month:a.daymonth.slice(2,4),year:a.year,i:a.i,j:a.j})}l=0;for(n=c.length;l<n;l++)a=c[l],f=parseInt(a.day),i=parseInt(a.month),j=parseInt(a.year),f=x(f,i,j),d=f[0],j=f[1],f=j[0],i=j[1],j=j[2],d&&e.push({pattern:"date",i:a.i,j:a.j,token:b.slice(g,h+1||9E9),
+    separator:"",day:f,month:i,year:j})}return e};K=/(\d{1,2})(\s|-|\/|\\|_|\.)(\d{1,2})\2(19\d{2}|200\d|201\d|\d{2})/;J=/(19\d{2}|200\d|201\d|\d{2})(\s|-|\/|\\|_|\.)(\d{1,2})\2(\d{1,2})/;L=function(b){var a,d,c,e,f,g,h,i,j,k;e=[];j=s(b,K);g=0;for(i=j.length;g<i;g++)c=j[g],k=function(){var a,b,e,f;e=[1,3,4];f=[];a=0;for(b=e.length;a<b;a++)d=e[a],f.push(parseInt(c[d]));return f}(),c.day=k[0],c.month=k[1],c.year=k[2],c.sep=c[2],e.push(c);j=s(b,J);g=0;for(i=j.length;g<i;g++)c=j[g],k=function(){var a,b,e,
+    f;e=[4,3,1];f=[];a=0;for(b=e.length;a<b;a++)d=e[a],f.push(parseInt(c[d]));return f}(),c.day=k[0],c.month=k[1],c.year=k[2],c.sep=c[2],e.push(c);k=[];i=0;for(j=e.length;i<j;i++)c=e[i],a=x(c.day,c.month,c.year),g=a[0],h=a[1],a=h[0],f=h[1],h=h[2],g&&k.push({pattern:"date",i:c.i,j:c.j,token:b.slice(c.i,c.j+1||9E9),separator:c.sep,day:a,month:f,year:h});return k};x=function(b,a,d){12<=a&&31>=a&&12>=b&&(a=[a,b],b=a[0],a=a[1]);return 31<b||12<a||!(1900<=d&&2019>=d)?[!1,[]]:[!0,[b,a,d]]};var X,Y,Z,$,C,aa,
+    ba,ca,da,ea,fa,ga,ha,ia,m,ja,t,ka,D,la,ma,na;t=function(b,a){var d,c;if(a>b)return 0;if(0===a)return 1;for(d=c=1;1<=a?d<=a:d>=a;1<=a?d++:d--)c*=b,c/=d,b-=1;return c};m=function(b){return Math.log(b)/Math.log(2)};ja=function(b,a){var d,c,e,f,g,h,i,j,k,l,o;c=C(b);k=[];d=[];f=0;for(l=b.length;0<=l?f<l:f>l;0<=l?f++:f--){k[f]=(k[f-1]||0)+m(c);d[f]=null;i=0;for(j=a.length;i<j;i++)h=a[i],h.j===f&&(g=[h.i,h.j],e=g[0],g=g[1],e=(k[e-1]||0)+aa(h),e<k[g]&&(k[g]=e,d[g]=h))}i=[];for(f=b.length-1;0<=f;)(h=d[f])?
+    (i.push(h),f=h.i-1):f-=1;i.reverse();d=function(a,d){return{pattern:"bruteforce",i:a,j:d,token:b.slice(a,d+1||9E9),entropy:m(Math.pow(c,d-a+1)),cardinality:c}};f=0;j=[];l=0;for(o=i.length;l<o;l++)h=i[l],g=[h.i,h.j],e=g[0],g=g[1],0<e-f&&j.push(d(f,e-1)),f=g+1,j.push(h);f<b.length&&j.push(d(f,b.length-1));i=j;h=k[b.length-1]||0;f=ga(h);return{password:b,entropy:D(h,3),match_sequence:i,crack_time:D(f,3),crack_time_display:fa(f),score:ba(f)}};D=function(b,a){return Math.round(b*Math.pow(10,a))/Math.pow(10,
+    a)};ga=function(b){return 5.0E-5*Math.pow(2,b)};ba=function(b){return b<Math.pow(10,2)?0:b<Math.pow(10,4)?1:b<Math.pow(10,6)?2:b<Math.pow(10,8)?3:4};aa=function(b){var a;if(null!=b.entropy)return b.entropy;a=function(){switch(b.pattern){case "repeat":return ka;case "sequence":return la;case "digits":return ea;case "year":return na;case "date":return ca;case "spatial":return ma;case "dictionary":return da}}();return b.entropy=a(b)};ka=function(b){var a;a=C(b.token);return m(a*b.token.length)};la=function(b){var a;
+    a=b.token.charAt(0);a="a"===a||"1"===a?1:a.match(/\d/)?m(10):a.match(/[a-z]/)?m(26):m(26)+1;b.ascending||(a+=1);return a+m(b.token.length)};ea=function(b){return m(Math.pow(10,b.token.length))};na=function(){return m(119)};ca=function(b){var a;a=100>b.year?m(37200):m(44268);b.separator&&(a+=2);return a};ma=function(b){var a,d,c,e,f,g,h,i;"qwerty"===(c=b.graph)||"dvorak"===c?(h=oa,d=pa):(h=qa,d=ra);f=0;a=b.token.length;i=b.turns;for(c=2;2<=a?c<=a:c>=a;2<=a?c++:c--){g=Math.min(i,c-1);for(e=1;1<=g?e<=
+    g:e>=g;1<=g?e++:e--)f+=t(c-1,e-1)*h*Math.pow(d,e)}d=m(f);if(b.shifted_count){a=b.shifted_count;b=b.token.length-b.shifted_count;c=f=0;for(e=Math.min(a,b);0<=e?c<=e:c>=e;0<=e?c++:c--)f+=t(a+b,c);d+=m(f)}return d};da=function(b){b.base_entropy=m(b.rank);b.uppercase_entropy=ia(b);b.l33t_entropy=ha(b);return b.base_entropy+b.uppercase_entropy+b.l33t_entropy};$=/^[A-Z][^A-Z]+$/;Z=/^[^A-Z]+[A-Z]$/;Y=/^[^a-z]+$/;X=/^[^A-Z]+$/;ia=function(b){var a,d,c,e,f,g;f=b.token;if(f.match(X))return 0;e=[$,Z,Y];a=0;
+    for(c=e.length;a<c;a++)if(b=e[a],f.match(b))return 1;a=function(){var a,b,c,e;c=f.split("");e=[];a=0;for(b=c.length;a<b;a++)d=c[a],d.match(/[A-Z]/)&&e.push(d);return e}().length;b=function(){var a,b,c,e;c=f.split("");e=[];a=0;for(b=c.length;a<b;a++)d=c[a],d.match(/[a-z]/)&&e.push(d);return e}().length;c=e=0;for(g=Math.min(a,b);0<=g?c<=g:c>=g;0<=g?c++:c--)e+=t(a+b,c);return m(e)};ha=function(b){var a,d,c,e,f,g,h,i,j;if(!b.l33t)return 0;f=0;i=b.sub;for(g in i){h=i[g];a=function(){var a,d,e,f;e=b.token.split("");
+    f=[];a=0;for(d=e.length;a<d;a++)c=e[a],c===g&&f.push(c);return f}().length;d=function(){var a,d,e,f;e=b.token.split("");f=[];a=0;for(d=e.length;a<d;a++)c=e[a],c===h&&f.push(c);return f}().length;e=0;for(j=Math.min(d,a);0<=j?e<=j:e>=j;0<=j?e++:e--)f+=t(d+a,e)}return m(f)||1};C=function(b){var a,d,c,e,f,g,h;e=[!1,!1,!1,!1];c=e[0];f=e[1];d=e[2];e=e[3];h=b.split("");b=0;for(g=h.length;b<g;b++)a=h[b],a=a.charCodeAt(0),48<=a&&57>=a&&(d=!0),65<=a&&90>=a&&(f=!0),97<=a&&122>=a?c=!0:e=!0;b=0;d&&(b+=10);f&&
+    (b+=26);c&&(b+=26);e&&(b+=33);return b};fa=function(b){return 60>b?"instant":3600>b?""+(1+Math.ceil(b/60))+" minutes":86400>b?""+(1+Math.ceil(b/3600))+" hours":2678400>b?""+(1+Math.ceil(b/86400))+" days":32140800>b?""+(1+Math.ceil(b/2678400))+" months":321408E4>b?""+(1+Math.ceil(b/32140800))+" years":"centuries"};var E={"!":["`~",null,null,"2@","qQ",null],'"':[";:","[{","]}",null,null,"/?"],"#":["2@",null,null,"4$","eE","wW"],$:["3#",null,null,"5%","rR","eE"],"%":["4$",null,null,"6^","tT","rR"],"&":["6^",
+    null,null,"8*","uU","yY"],"'":[";:","[{","]}",null,null,"/?"],"(":["8*",null,null,"0)","oO","iI"],")":["9(",null,null,"-_","pP","oO"],"*":["7&",null,null,"9(","iI","uU"],"+":["-_",null,null,null,"]}","[{"],",":["mM","kK","lL",".>",null,null],"-":["0)",null,null,"=+","[{","pP"],".":[",<","lL",";:","/?",null,null],"/":[".>",";:","'\"",null,null,null],"0":["9(",null,null,"-_","pP","oO"],1:["`~",null,null,"2@","qQ",null],2:["1!",null,null,"3#","wW","qQ"],3:["2@",null,null,"4$","eE","wW"],4:["3#",null,
+    null,"5%","rR","eE"],5:["4$",null,null,"6^","tT","rR"],6:["5%",null,null,"7&","yY","tT"],7:["6^",null,null,"8*","uU","yY"],8:["7&",null,null,"9(","iI","uU"],9:["8*",null,null,"0)","oO","iI"],":":"lL,pP,[{,'\",/?,.>".split(","),";":"lL,pP,[{,'\",/?,.>".split(","),"<":["mM","kK","lL",".>",null,null],"=":["-_",null,null,null,"]}","[{"],">":[",<","lL",";:","/?",null,null],"?":[".>",";:","'\"",null,null,null],"@":["1!",null,null,"3#","wW","qQ"],A:[null,"qQ","wW","sS","zZ",null],B:["vV","gG","hH","nN",
+    null,null],C:["xX","dD","fF","vV",null,null],D:"sS,eE,rR,fF,cC,xX".split(","),E:"wW,3#,4$,rR,dD,sS".split(","),F:"dD,rR,tT,gG,vV,cC".split(","),G:"fF,tT,yY,hH,bB,vV".split(","),H:"gG,yY,uU,jJ,nN,bB".split(","),I:"uU,8*,9(,oO,kK,jJ".split(","),J:"hH,uU,iI,kK,mM,nN".split(","),K:"jJ iI oO lL ,< mM".split(" "),L:"kK oO pP ;: .> ,<".split(" "),M:["nN","jJ","kK",",<",null,null],N:["bB","hH","jJ","mM",null,null],O:"iI,9(,0),pP,lL,kK".split(","),P:"oO,0),-_,[{,;:,lL".split(","),Q:[null,"1!","2@","wW","aA",
+    null],R:"eE,4$,5%,tT,fF,dD".split(","),S:"aA,wW,eE,dD,xX,zZ".split(","),T:"rR,5%,6^,yY,gG,fF".split(","),U:"yY,7&,8*,iI,jJ,hH".split(","),V:["cC","fF","gG","bB",null,null],W:"qQ,2@,3#,eE,sS,aA".split(","),X:["zZ","sS","dD","cC",null,null],Y:"tT,6^,7&,uU,hH,gG".split(","),Z:[null,"aA","sS","xX",null,null],"[":"pP,-_,=+,]},'\",;:".split(","),"\\":["]}",null,null,null,null,null],"]":["[{","=+",null,"\\|",null,"'\""],"^":["5%",null,null,"7&","yY","tT"],_:["0)",null,null,"=+","[{","pP"],"`":[null,null,
+    null,"1!",null,null],a:[null,"qQ","wW","sS","zZ",null],b:["vV","gG","hH","nN",null,null],c:["xX","dD","fF","vV",null,null],d:"sS,eE,rR,fF,cC,xX".split(","),e:"wW,3#,4$,rR,dD,sS".split(","),f:"dD,rR,tT,gG,vV,cC".split(","),g:"fF,tT,yY,hH,bB,vV".split(","),h:"gG,yY,uU,jJ,nN,bB".split(","),i:"uU,8*,9(,oO,kK,jJ".split(","),j:"hH,uU,iI,kK,mM,nN".split(","),k:"jJ iI oO lL ,< mM".split(" "),l:"kK oO pP ;: .> ,<".split(" "),m:["nN","jJ","kK",",<",null,null],n:["bB","hH","jJ","mM",null,null],o:"iI,9(,0),pP,lL,kK".split(","),
+    p:"oO,0),-_,[{,;:,lL".split(","),q:[null,"1!","2@","wW","aA",null],r:"eE,4$,5%,tT,fF,dD".split(","),s:"aA,wW,eE,dD,xX,zZ".split(","),t:"rR,5%,6^,yY,gG,fF".split(","),u:"yY,7&,8*,iI,jJ,hH".split(","),v:["cC","fF","gG","bB",null,null],w:"qQ,2@,3#,eE,sS,aA".split(","),x:["zZ","sS","dD","cC",null,null],y:"tT,6^,7&,uU,hH,gG".split(","),z:[null,"aA","sS","xX",null,null],"{":"pP,-_,=+,]},'\",;:".split(","),"|":["]}",null,null,null,null,null],"}":["[{","=+",null,"\\|",null,"'\""],"~":[null,null,null,"1!",
+    null,null]},F={"*":["/",null,null,null,"-","+","9","8"],"+":["9","*","-",null,null,null,null,"6"],"-":["*",null,null,null,null,null,"+","9"],".":["0","2","3",null,null,null,null,null],"/":[null,null,null,null,"*","9","8","7"],"0":[null,"1","2","3",".",null,null,null],1:[null,null,"4","5","2","0",null,null],2:["1","4","5","6","3",".","0",null],3:["2","5","6",null,null,null,".","0"],4:[null,null,"7","8","5","2","1",null],5:"4,7,8,9,6,3,2,1".split(","),6:["5","8","9","+",null,null,"3","2"],7:[null,null,
+    null,"/","8","5","4",null],8:["7",null,"/","*","9","6","5","4"],9:["8","/","*","-","+",null,"6","5"]},u,G,pa,oa,ra,qa,A,v,H,I;H={};u=[p("passwords",q("password,123456,12345678,1234,qwerty,12345,dragon,pussy,baseball,football,letmein,monkey,696969,abc123,mustang,shadow,master,111111,2000,jordan,superman,harley,1234567,fuckme,hunter,fuckyou,trustno1,ranger,buster,tigger,soccer,fuck,batman,test,pass,killer,hockey,charlie,love,sunshine,asshole,6969,pepper,access,123456789,654321,maggie,starwars,silver,dallas,yankees,123123,666666,hello,orange,biteme,freedom,computer,sexy,thunder,ginger,hammer,summer,corvette,fucker,austin,1111,merlin,121212,golfer,cheese,princess,chelsea,diamond,yellow,bigdog,secret,asdfgh,sparky,cowboy,camaro,matrix,falcon,iloveyou,guitar,purple,scooter,phoenix,aaaaaa,tigers,porsche,mickey,maverick,cookie,nascar,peanut,131313,money,horny,samantha,panties,steelers,snoopy,boomer,whatever,iceman,smokey,gateway,dakota,cowboys,eagles,chicken,dick,black,aaaaaaaaaa,a'right".split(","))),
+    p("male_names",q("james,john,robert,michael,william,david,richard,charles,joseph,thomas,christopher,daniel,paul,mark,donald,george,kenneth,steven,edward,brian,ronald,anthony,kevin,jason,matthew,gary,timothy,jose,larry,jeffrey,frank,scott,eric,stephen,andrew,raymond,gregory,joshua,jerry,dennis,walter,patrick,peter,harold,douglas,henry,carl,arthur,ryan,roger,joe,juan,jack,albert,jonathan,justin,terry,gerald,keith,samuel,willie,ralph,lawrence,nicholas,roy,benjamin,bruce,brandon,adam,harry,fred,wayne,billy,steve,louis,jeremy,aaron,randy,eugene,carlos,russell,bobby,victor,ernest,phillip,todd,jesse,craig,alan,shawn,clarence,sean,philip,chris,johnny,earl,jimmy,antonio,danny,bryan,tony,luis,mike,stanley,leonard,nathan,dale,manuel,rodney,curtis,norman,marvin,vincent,glenn,jeffery,travis,jeff,chad,jacob,melvin,alfred,kyle,francis,bradley,jesus,herbert,frederick,ray,joel,edwin,don,eddie,ricky,troy,randall,barry,bernard,mario,leroy,francisco,marcus,micheal,theodore,clifford,miguel,oscar,jay,jim,tom,calvin,alex,jon,ronnie,bill,lloyd,tommy,leon,derek,darrell,jerome,floyd,leo,alvin,tim,wesley,dean,greg,jorge,dustin,pedro,derrick,dan,zachary,corey,herman,maurice,vernon,roberto,clyde,glen,hector,shane,ricardo,sam,rick,lester,brent,ramon,tyler,gilbert,gene,marc,reginald,ruben,brett,angel,nathaniel,rafael,edgar,milton,raul,ben,cecil,duane,andre,elmer,brad,gabriel,ron,roland,jared,adrian,karl,cory,claude,erik,darryl,neil,christian,javier,fernando,clinton,ted,mathew,tyrone,darren,lonnie,lance,cody,julio,kurt,allan,clayton,hugh,max,dwayne,dwight,armando,felix,jimmie,everett,ian,ken,bob,jaime,casey,alfredo,alberto,dave,ivan,johnnie,sidney,byron,julian,isaac,clifton,willard,daryl,virgil,andy,salvador,kirk,sergio,seth,kent,terrance,rene,eduardo,terrence,enrique,freddie,stuart,fredrick,arturo,alejandro,joey,nick,luther,wendell,jeremiah,evan,julius,donnie,otis,trevor,luke,homer,gerard,doug,kenny,hubert,angelo,shaun,lyle,matt,alfonso,orlando,rex,carlton,ernesto,pablo,lorenzo,omar,wilbur,blake,horace,roderick,kerry,abraham,rickey,ira,andres,cesar,johnathan,malcolm,rudolph,damon,kelvin,rudy,preston,alton,archie,marco,wm,pete,randolph,garry,geoffrey,jonathon,felipe,bennie,gerardo,ed,dominic,loren,delbert,colin,guillermo,earnest,benny,noel,rodolfo,myron,edmund,salvatore,cedric,lowell,gregg,sherman,devin,sylvester,roosevelt,israel,jermaine,forrest,wilbert,leland,simon,irving,owen,rufus,woodrow,kristopher,levi,marcos,gustavo,lionel,marty,gilberto,clint,nicolas,laurence,ismael,orville,drew,ervin,dewey,al,wilfred,josh,hugo,ignacio,caleb,tomas,sheldon,erick,frankie,darrel,rogelio,terence,alonzo,elias,bert,elbert,ramiro,conrad,noah,grady,phil,cornelius,lamar,rolando,clay,percy,dexter,bradford,merle,darin,amos,terrell,moses,irvin,saul,roman,darnell,randal,tommie,timmy,darrin,brendan,toby,van,abel,dominick,emilio,elijah,cary,domingo,aubrey,emmett,marlon,emanuel,jerald,edmond,emil,dewayne,otto,teddy,reynaldo,bret,jess,trent,humberto,emmanuel,stephan,louie,vicente,lamont,garland,micah,efrain,heath,rodger,demetrius,ethan,eldon,rocky,pierre,eli,bryce,antoine,robbie,kendall,royce,sterling,grover,elton,cleveland,dylan,chuck,damian,reuben,stan,leonardo,russel,erwin,benito,hans,monte,blaine,ernie,curt,quentin,agustin,jamal,devon,adolfo,tyson,wilfredo,bart,jarrod,vance,denis,damien,joaquin,harlan,desmond,elliot,darwin,gregorio,kermit,roscoe,esteban,anton,solomon,norbert,elvin,nolan,carey,rod,quinton,hal,brain,rob,elwood,kendrick,darius,moises,marlin,fidel,thaddeus,cliff,marcel,ali,raphael,bryon,armand,alvaro,jeffry,dane,joesph,thurman,ned,sammie,rusty,michel,monty,rory,fabian,reggie,kris,isaiah,gus,avery,loyd,diego,adolph,millard,rocco,gonzalo,derick,rodrigo,gerry,rigoberto,alphonso,ty,rickie,noe,vern,elvis,bernardo,mauricio,hiram,donovan,basil,nickolas,scot,vince,quincy,eddy,sebastian,federico,ulysses,heriberto,donnell,denny,gavin,emery,romeo,jayson,dion,dante,clement,coy,odell,jarvis,bruno,issac,dudley,sanford,colby,carmelo,nestor,hollis,stefan,donny,art,linwood,beau,weldon,galen,isidro,truman,delmar,johnathon,silas,frederic,irwin,merrill,charley,marcelino,carlo,trenton,kurtis,aurelio,winfred,vito,collin,denver,leonel,emory,pasquale,mohammad,mariano,danial,landon,dirk,branden,adan,numbers,clair,buford,german,bernie,wilmer,emerson,zachery,jacques,errol,josue,edwardo,wilford,theron,raymundo,daren,tristan,robby,lincoln,jame,genaro,octavio,cornell,hung,arron,antony,herschel,alva,giovanni,garth,cyrus,cyril,ronny,stevie,lon,kennith,carmine,augustine,erich,chadwick,wilburn,russ,myles,jonas,mitchel,mervin,zane,jamel,lazaro,alphonse,randell,major,johnie,jarrett,ariel,abdul,dusty,luciano,seymour,scottie,eugenio,mohammed,valentin,arnulfo,lucien,ferdinand,thad,ezra,aldo,rubin,royal,mitch,earle,abe,marquis,lanny,kareem,jamar,boris,isiah,emile,elmo,aron,leopoldo,everette,josef,eloy,dorian,rodrick,reinaldo,lucio,jerrod,weston,hershel,lemuel,lavern,burt,jules,gil,eliseo,ahmad,nigel,efren,antwan,alden,margarito,refugio,dino,osvaldo,les,deandre,normand,kieth,ivory,trey,norberto,napoleon,jerold,fritz,rosendo,milford,sang,deon,christoper,alfonzo,lyman,josiah,brant,wilton,rico,jamaal,dewitt,brenton,yong,olin,faustino,claudio,judson,gino,edgardo,alec,jarred,donn,trinidad,tad,porfirio,odis,lenard,chauncey,tod,mel,marcelo,kory,augustus,keven,hilario,bud,sal,orval,mauro,dannie,zachariah,olen,anibal,milo,jed,thanh,amado,lenny,tory,richie,horacio,brice,mohamed,delmer,dario,mac,jonah,jerrold,robt,hank,sung,rupert,rolland,kenton,damion,chi,antone,waldo,fredric,bradly,kip,burl,tyree,jefferey,ahmed,willy,stanford,oren,moshe,mikel,enoch,brendon,quintin,jamison,florencio,darrick,tobias,minh,hassan,giuseppe,demarcus,cletus,tyrell,lyndon,keenan,werner,theo,geraldo,columbus,chet,bertram,markus,huey,hilton,dwain,donte,tyron,omer,isaias,hipolito,fermin,chung,adalberto,jamey,teodoro,mckinley,maximo,sol,raleigh,lawerence,abram,rashad,emmitt,daron,chong,samual,otha,miquel,eusebio,dong,domenic,darron,wilber,renato,hoyt,haywood,ezekiel,chas,florentino,elroy,clemente,arden,neville,edison,deshawn,carrol,shayne,nathanial,jordon,danilo,claud,val,sherwood,raymon,rayford,cristobal,ambrose,titus,hyman,felton,ezequiel,erasmo,lonny,len,ike,milan,lino,jarod,herb,andreas,rhett,jude,douglass,cordell,oswaldo,ellsworth,virgilio,toney,nathanael,del,benedict,mose,hong,isreal,garret,fausto,asa,arlen,zack,modesto,francesco,manual,jae,gaylord,gaston,filiberto,deangelo,michale,granville,wes,malik,zackary,tuan,nicky,cristopher,antione,malcom,korey,jospeh,colton,waylon,von,hosea,shad,santo,rudolf,rolf,rey,renaldo,marcellus,lucius,kristofer,harland,arnoldo,rueben,leandro,kraig,jerrell,jeromy,hobert,cedrick,arlie,winford,wally,luigi,keneth,jacinto,graig,franklyn,edmundo,sid,leif,jeramy,willian,vincenzo,shon,michal,lynwood,jere,hai,elden,darell,broderick,alonso".split(","))),
+    p("female_names",q("mary,patricia,linda,barbara,annelle,angila,alona,allyn".split(","))),
+    p("surnames",q("smith,johnson,williams,jones,brown,davis,miller,wilson,moore,taylor,anderson,jackson,white,harris,martin,thompson,garcia,martinez,robinson,clark,bjerk,bizub,bisono,bisges,bisaillon,birr,birnie,bires,birdtail,birdine,bina,billock,billinger,billig,billet,bigwood,bigalk,bielicki,biddick,biccum,biafore,bhagat,beza,beyah,bevier,bevell,beute,betzer,betthauser,bethay,bethard,beshaw,bertholf,bertels,berridge,bernot,bernath,bernabei,berkson,berkovitz,berkich,bergsten,berget,berezny,berdin,beougher,benthin,benhaim,benenati,benejan,bemiss,beloate,bellucci,bellotti,belling,bellido,bellaire,bellafiore,bekins,bekele,beish,behnken,beerly,beddo,becket,becke,bebeau,beauchaine,beaucage,beadling,beacher,bazar,baysmore".split(","))),
+    p("user_inputs",H)];A=u.concat([function(b){var a,d,c,e,f,g,h,i,j,k,l,o,n,m,p,q;f=[];p=Q(S(b));j=0;for(o=p.length;j<o;j++){g=p[j];if(P(g))break;k=0;for(n=u.length;k<n;k++){c=u[k];e=V(b,g);q=c(e);l=0;for(m=q.length;l<m;l++)if(c=q[l],i=b.slice(c.i,c.j+1||9E9),i.toLowerCase()!==c.matched_word){e={};for(h in g)a=g[h],-1!==i.indexOf(h)&&(e[h]=a);c.l33t=!0;c.token=i;c.sub=e;i=c;var B=void 0,B=[];for(d in e)a=e[d],B.push(""+d+" -> "+a);i.sub_display=B.join(", ");f.push(c)}}}return f},function(b){var a,d,
+    c,e,f,g;f=s(b,O);g=[];c=0;for(e=f.length;c<e;c++)a=f[c],d=[a.i,a.j],a=d[0],d=d[1],g.push({pattern:"digits",i:a,j:d,token:b.slice(a,d+1||9E9)});return g},function(b){var a,d,c,e,f,g;f=s(b,W);g=[];c=0;for(e=f.length;c<e;c++)a=f[c],d=[a.i,a.j],a=d[0],d=d[1],g.push({pattern:"year",i:a,j:d,token:b.slice(a,d+1||9E9)});return g},function(b){return M(b).concat(L(b))},function(b){var a,d,c;c=[];for(a=0;a<b.length;){for(d=a+1;;)if(b.slice(d-1,d+1||9E9),b.charAt(d-1)===b.charAt(d))d+=1;else{2<d-a&&c.push({pattern:"repeat",
+    i:a,j:d-1,token:b.slice(a,d),repeated_char:b.charAt(a)});break}a=d}return c},function(b){var a,d,c,e,f,g,h,i,j,k,l,m,n;i=[];for(f=0;f<b.length;){g=f+1;m=n=j=null;for(l in w)if(k=w[l],c=function(){var c,d,e,h;e=[b.charAt(f),b.charAt(g)];h=[];c=0;for(d=e.length;c<d;c++)a=e[c],h.push(k.indexOf(a));return h}(),e=c[0],c=c[1],-1<e&&-1<c&&(e=c-e,1===e||-1===e)){j=k;n=l;m=e;break}if(j)for(;;)if(e=b.slice(g-1,g+1||9E9),h=e[0],d=e[1],c=function(){var b,c,e,f;e=[h,d];f=[];b=0;for(c=e.length;b<c;b++)a=e[b],f.push(k.indexOf(a));
+    return f}(),e=c[0],c=c[1],c-e===m)g+=1;else{2<g-f&&i.push({pattern:"sequence",i:f,j:g-1,token:b.slice(f,g),sequence_name:n,sequence_space:j.length,ascending:1===m});break}f=g}return i},function(b){var a,d,c;c=[];for(d in G)a=G[d],y(c,U(b,a,d));return c}]);G={qwerty:E,dvorak:{"!":["`~",null,null,"2@","'\"",null],'"':[null,"1!","2@",",<","aA",null],"#":["2@",null,null,"4$",".>",",<"],$:["3#",null,null,"5%","pP",".>"],"%":["4$",null,null,"6^","yY","pP"],"&":["6^",null,null,"8*","gG","fF"],"'":[null,
+    "1!","2@",",<","aA",null],"(":["8*",null,null,"0)","rR","cC"],")":["9(",null,null,"[{","lL","rR"],"*":["7&",null,null,"9(","cC","gG"],"+":["/?","]}",null,"\\|",null,"-_"],",":"'\",2@,3#,.>,oO,aA".split(","),"-":["sS","/?","=+",null,null,"zZ"],".":",< 3# 4$ pP eE oO".split(" "),"/":"lL,[{,]},=+,-_,sS".split(","),"0":["9(",null,null,"[{","lL","rR"],1:["`~",null,null,"2@","'\"",null],2:["1!",null,null,"3#",",<","'\""],3:["2@",null,null,"4$",".>",",<"],4:["3#",null,null,"5%","pP",".>"],5:["4$",null,null,
+    "6^","yY","pP"],6:["5%",null,null,"7&","fF","yY"],7:["6^",null,null,"8*","gG","fF"],8:["7&",null,null,"9(","cC","gG"],9:["8*",null,null,"0)","rR","cC"],":":[null,"aA","oO","qQ",null,null],";":[null,"aA","oO","qQ",null,null],"<":"'\",2@,3#,.>,oO,aA".split(","),"=":["/?","]}",null,"\\|",null,"-_"],">":",< 3# 4$ pP eE oO".split(" "),"?":"lL,[{,]},=+,-_,sS".split(","),"@":["1!",null,null,"3#",",<","'\""],A:[null,"'\"",",<","oO",";:",null],B:["xX","dD","hH","mM",null,null],C:"gG,8*,9(,rR,tT,hH".split(","),
+    D:"iI,fF,gG,hH,bB,xX".split(","),E:"oO,.>,pP,uU,jJ,qQ".split(","),F:"yY,6^,7&,gG,dD,iI".split(","),G:"fF,7&,8*,cC,hH,dD".split(","),H:"dD,gG,cC,tT,mM,bB".split(","),I:"uU,yY,fF,dD,xX,kK".split(","),J:["qQ","eE","uU","kK",null,null],K:["jJ","uU","iI","xX",null,null],L:"rR,0),[{,/?,sS,nN".split(","),M:["bB","hH","tT","wW",null,null],N:"tT,rR,lL,sS,vV,wW".split(","),O:"aA ,< .> eE qQ ;:".split(" "),P:".>,4$,5%,yY,uU,eE".split(","),Q:[";:","oO","eE","jJ",null,null],R:"cC,9(,0),lL,nN,tT".split(","),S:"nN,lL,/?,-_,zZ,vV".split(","),
+    T:"hH,cC,rR,nN,wW,mM".split(","),U:"eE,pP,yY,iI,kK,jJ".split(","),V:["wW","nN","sS","zZ",null,null],W:["mM","tT","nN","vV",null,null],X:["kK","iI","dD","bB",null,null],Y:"pP,5%,6^,fF,iI,uU".split(","),Z:["vV","sS","-_",null,null,null],"[":["0)",null,null,"]}","/?","lL"],"\\":["=+",null,null,null,null,null],"]":["[{",null,null,null,"=+","/?"],"^":["5%",null,null,"7&","fF","yY"],_:["sS","/?","=+",null,null,"zZ"],"`":[null,null,null,"1!",null,null],a:[null,"'\"",",<","oO",";:",null],b:["xX","dD","hH",
+    "mM",null,null],c:"gG,8*,9(,rR,tT,hH".split(","),d:"iI,fF,gG,hH,bB,xX".split(","),e:"oO,.>,pP,uU,jJ,qQ".split(","),f:"yY,6^,7&,gG,dD,iI".split(","),g:"fF,7&,8*,cC,hH,dD".split(","),h:"dD,gG,cC,tT,mM,bB".split(","),i:"uU,yY,fF,dD,xX,kK".split(","),j:["qQ","eE","uU","kK",null,null],k:["jJ","uU","iI","xX",null,null],l:"rR,0),[{,/?,sS,nN".split(","),m:["bB","hH","tT","wW",null,null],n:"tT,rR,lL,sS,vV,wW".split(","),o:"aA ,< .> eE qQ ;:".split(" "),p:".>,4$,5%,yY,uU,eE".split(","),q:[";:","oO","eE","jJ",
+    null,null],r:"cC,9(,0),lL,nN,tT".split(","),s:"nN,lL,/?,-_,zZ,vV".split(","),t:"hH,cC,rR,nN,wW,mM".split(","),u:"eE,pP,yY,iI,kK,jJ".split(","),v:["wW","nN","sS","zZ",null,null],w:["mM","tT","nN","vV",null,null],x:["kK","iI","dD","bB",null,null],y:"pP,5%,6^,fF,iI,uU".split(","),z:["vV","sS","-_",null,null,null],"{":["0)",null,null,"]}","/?","lL"],"|":["=+",null,null,null,null,null],"}":["[{",null,null,null,"=+","/?"],"~":[null,null,null,"1!",null,null]},keypad:F,mac_keypad:{"*":["/",null,null,null,
+    null,null,"-","9"],"+":["6","9","-",null,null,null,null,"3"],"-":["9","/","*",null,null,null,"+","6"],".":["0","2","3",null,null,null,null,null],"/":["=",null,null,null,"*","-","9","8"],"0":[null,"1","2","3",".",null,null,null],1:[null,null,"4","5","2","0",null,null],2:["1","4","5","6","3",".","0",null],3:["2","5","6","+",null,null,".","0"],4:[null,null,"7","8","5","2","1",null],5:"4,7,8,9,6,3,2,1".split(","),6:["5","8","9","-","+",null,"3","2"],7:[null,null,null,"=","8","5","4",null],8:["7",null,
+    "=","/","9","6","5","4"],9:"8,=,/,*,-,+,6,5".split(","),"=":[null,null,null,null,"/","9","8","7"]}};p=function(b){var a,d,c,e,f;a=0;for(c in b)f=b[c],a+=function(){var a,b,c;c=[];a=0;for(b=f.length;a<b;a++)(e=f[a])&&c.push(e);return c}().length;return a/=function(){var a;a=[];for(d in b)a.push(d);return a}().length};pa=p(E);ra=p(F);oa=function(){var b;b=[];for(v in E)b.push(v);return b}().length;qa=function(){var b;b=[];for(v in F)b.push(v);return b}().length;I=function(){return(new Date).getTime()};
+    window.zxcvbn=function(b,a){var d,c,e;c=I();if(null!=a){d=0;for(e=a.length;0<=e?d<e:d>e;0<=e?d++:d--)H[a[d]]=d+1}d=R(b);d=ja(b,d);d.calc_time=I()-c;return d};"function"===typeof zxcvbn_load_hook&&zxcvbn_load_hook()})();
+    </script></div></div><div class="et_pb_module et_pb_code et_pb_code_1"><div class="et_pb_code_inner"> <!--[if lt IE 7]><html class="no-js lt-ie8 lt-ie7 lt-ie6"> <![endif]--> <!--[if IE 7]><html class="no-js lt-ie8 lt-ie7"> <![endif]--> <!--[if IE 8]><html class="no-js lt-ie8"> <![endif]--> <!--[if IE 9]><html class="no-js lt-ie9"> <![endif]--> <!--[if gt IE 8]><!--> <!--<![endif]--> <script> function dump(arr,level) {
+    var dumped_text = "";
+    if(!level) level = 0;
+    var level_padding = "";
+    for(var j=0;j<level+1;j++) level_padding += "    ";
+    if(typeof(arr) == 'object') { //Array/Hashes/Objects
+     for(var item in arr) {
+     var value = arr[item]; 
+     if(typeof(value) == 'object') { //If it is an array,
+     dumped_text += level_padding + "'" + item + "' ...<br />";
+     dumped_text += dump(value,level+1);
+     } else {
+     dumped_text += level_padding + "'" + item + "' => \"" + value + "\"<br />";
+     }
+     }
+    } else { //Stings/Chars/Numbers etc.
+     dumped_text = "===>"+arr+"<===("+typeof(arr)+")";
+    }
+    return dumped_text;
+    } 
+     function showText(divlayer, link){
+     if(document.getElementById(divlayer).style.display == "none"){
+     document.getElementById(divlayer).style.display = "";
+     if(link) document.getElementById(link).innerHTML = "&#9650;";
+     }else{
+     document.getElementById(divlayer).style.display = "none";
+     if(link) document.getElementById(link).innerHTML = "&#9660;";
+     }
+     } 
+     function toggleShowHide(thisvalue){
+     if(thisvalue.checked){
+     document.getElementById("lgd_out_pg_pass").type = "text";
+     }else{
+     document.getElementById("lgd_out_pg_pass").type = "password";
+     }
+     }
+     function generateRandomTip(){
+     var tip_number = Math.floor(Math.random()*7);
+     switch (tip_number){
+     case 0:
+     document.getElementById('tip').innerHTML = 'Stronger passwords use different types of characters';
+     break;
+     case 1:
+     document.getElementById('tip').innerHTML = 'Avoid sequences or repeated characters in your passwords';
+     break;
+     case 2:
+     document.getElementById('tip').innerHTML = 'Don&rsquo;t simply change e&rsquo;s for 3&prime;s, a&rsquo;s for 4&prime;s etc. These are well-established password tricks which any hacker will be familiar with';
+     break;
+     case 3:
+     document.getElementById('tip').innerHTML = 'Avoid the use of dictionary words or common names, and avoid using any personal information';
+     break;
+     case 4:
+     document.getElementById('tip').innerHTML = 'When adding a capital or digit to your password, don&rsquo;t simply put the capital at the start and the digit at the end';
+     break;
+     case 5:
+     document.getElementById('tip').innerHTML = 'It&rsquo;s often better to have longer passwords than shorter, more complex ones';
+     break;
+     case 6:
+     document.getElementById('tip').innerHTML = 'Try to make your passwords at least 15 characters long';
+     break;
+     }
+     } 
+     function toWords(number) { 
+     //is merely seconds, just return rounded numebr
+     if(number<120){
+     return getNumberWords(number, true)+" seconds";
+     }
+     var hour = 60*60;
+     if(number<hour){
+     minutes = number/60;
+     return  getNumberWords(minutes, true)+" minutes";
+     } 
+     var day = hour * 24;
+     if(number<(2*day)){
+     hours = number/hour;
+     return  getNumberWords(hours)+" hours";
+     } 
+     var month = day * 30;
+     if(number<month){
+     days = number/day;
+     return  getNumberWords(days)+" days";
+     } 
+     var year = day * 365;
+     if(number<year){
+     months = number/month;
+     return  getNumberWords(months)+" months";
+     } 
+     var century = year * 100;
+     if(number<century*10){
+     years = number/year;
+     return  getNumberWords(years)+" years";
+     } 
+     if(number<century*100){
+     centuries = number/century;
+     return  getNumberWords(centuries)+" centuries";
+     } 
+     years = number/year;
+     return  getNumberWords(years)+" years";
+    }
+     function getNumberWords(number, twoDP){
+     var numberWords = ""; 
+     var trillion = Math.pow(10, 12);
+     var billion = Math.pow(10, 9);
+     var million = Math.pow(10, 6);
+     var thousand = Math.pow(10, 4);
+     var hundred = Math.pow(10, 3); 
+     while(number/trillion >= 1){
+     numberWords = " trillion " + numberWords;
+     number = number/trillion;
+     } 
+     while(number/billion >= 1){
+     numberWords = " billion " + numberWords;
+     number = number/billion;
+     } 
+     while(number/million >= 1){
+     numberWords = " million " + numberWords;
+     number = number/million;
+     } 
+     while(number/thousand >= 1){
+     numberWords = " thousand " + numberWords;
+     number = number/thousand;
+     } 
+     while(number/hundred >= 1){
+     numberWords = " hundred " + numberWords;
+     number = number/hundred;
+     } 
+     if(twoDP){
+     decimalPoint = 100;
+     }else{
+     decimalPoint = 1;
+     }
+     number = (Math.round(number*decimalPoint)/decimalPoint) 
+     numberWords = number + numberWords; 
+     return numberWords;
+    } 
+     function showCharCount(password){
+     document.getElementById("character_count").innerHTML = password.length;
+     }
+     function showHasChars(typeofchar, clear){
+     if(document.getElementById(typeofchar+"_count")){
+     thiselem = document.getElementById(typeofchar+"_count");
+     }else{
+     return false;
+     } 
+     if(clear){
+     thiselem.style.backgroundColor = "red";
+     }else{
+     thiselem.style.backgroundColor = "green";
+     }
+     } 
+     function checkThisPassword(password){
+     var checked = zxcvbn(password);
+     var timetocrack = checked.crack_time;
+     var strength = checked.score; 
+     var timeinwords = toWords(timetocrack); 
+     document.getElementById("first_estimate").innerHTML = '<h1>'+timeinwords+'';
+     if(password=="") strength = 5; 
+     displayStrength(strength)
+     getCharacterSetOf(password)
+     showCharCount(password); 
+     if(strength < 3){
+     matchSequence = checked.match_sequence;
+     displayWeakExplanation(matchSequence, strength);
+     }else{
+     document.getElementById("explanation").innerHTML = "";
+     }
+     if(password!=""){ displayMetaphor(strength); }else{ document.getElementById("metaphor").innerHTML = ""; }
+     //displaydiv(dump(checked))
+     return true;
+     } 
+     function displayMetaphor(strength){
+     var metaphor = ""
+     switch(strength){
+     case 0:
+     metaphor = "  Oh dear, using that password is like leaving your front door wide open.  ";
+     break;
+     case 1:
+     metaphor = " Oops, using that password is like leaving your key in the lock.  ";
+     break;
+     case 2:
+     metaphor = " Hmm, using that password is like locking your front door, but leaving the key under the mat.  ";
+     break;
+     case 3:
+     metaphor = " Good, using that password is like locking your front door and keeping the key in a safety deposit box. ";
+     break;
+     case 4:
+     metaphor = " Fantastic, using that password makes you as secure as Fort Knox. ";
+     break; 
+     }
+     document.getElementById("metaphor").innerHTML = '<span style="font-weight:bold">Review: '+metaphor;
+     }
+     function displayWeakExplanation(matchSequence, strength){
+     var strengthtext = false;
+     switch(strength){
+     case 0:
+     strengthtext = " very weak ";
+     break;
+     case 1:
+     strengthtext = " weak ";
+     break;
+     case 2:
+     strengthtext = " of medium strength ";
+     break; 
+     }
+     var matchSize = matchSequence.length;
+     var pattern = false;
+     var dictionary = false;
+     var word = false;
+     var matchType = false;
+     var containsWord = "contains";
+     var result = new Array(); 
+     for(var i=0;i<matchSize;i++){
+     pattern = matchSequence[i].pattern;
+     thisRes = false;
+     switch(pattern){
+     case "dictionary":
+     dictionary = dictionaryType(matchSequence[i])
+     thisType = dictionary["type"];
+     thisWord = dictionary["word"];
+     if(!result[thisType]){ result[thisType] = new Array();}
+     //result[thisType]["count"]++;
+     result[thisType][thisWord] = true;
+     break;
+     case "spatial":
+     if(matchSequence[i]["graph"]!="dvorak"){
+     if(!result["combination of characters that are close together on the keyboard"]){ result["combination of characters that are close together on the keyboard"] = new Array();}
+     thisWord = matchSequence[i]["matched_word"];
+     result["combination of characters that are close together on the keyboard"][thisWord] = true;
+     }
+     break;
+     case "sequence":
+     if(!result["sequence of characters"]){ result["sequence of characters"] = new Array();}
+     thisWord = matchSequence[i]["matched_word"];
+     result["sequence of characters"][thisWord] = true;
+     break;
+     }
+     }
+     //document.getElementById("explanation").innerHTML = dump(result);
+     //return;
+     var hasWords = false;
+     if(matchSize>0){
+     if(matchSize===1){
+     explanation = "Your password is "+strengthtext+" because it is ";
+     }else{
+     explanation = "Your password is "+strengthtext+" because it contains ";
+     }
+     matchSize = 0;
+     for(h in result){ matchSize++; } 
+     var andString = " ";
+     var commaString = ", ";
+     var thisCount = 0;
+     //gathered all information, now to translate into words
+     for(matchType in result){
+     thisElem = result[matchType];
+     count = 0;
+     for(h in thisElem){ count++; }
+     thisCount++;
+     if(thisCount>=matchSize&&matchSize!=1){
+     andString = " and ";
+     } 
+     if(count>1){
+     explanation += andString + count + " " + matchType + "s";
+     hasWords = true;
+     }else{
+     explanation += andString + " a "+matchType;
+     hasWords = true;
+     }
+     andString = ", "; 
+     }
+     explanation += ".";
+     }
+     // document.getElementById("explanation").innerHTML = dump(result);
+     document.getElementById("explanation").innerHTML = "";
+     if(hasWords) document.getElementById("explanation").innerHTML = explanation;
+     } 
+     function dictionaryType(pattern){
+     var word = pattern["matched_word"];
+     var dictionary = pattern["dictionary_name"];
+     var type = false; 
+     switch(dictionary){
+     case "passwords":
+     type = "common password";
+     break;
+     case "english":
+     type = "dictionary word";
+     break;
+     case "male_names":
+     type = "male name";
+     break;
+     case "female_names":
+     type = "female name";
+     break;
+     case "surnames":
+     type = "surname";
+     break;
+     } 
+     var res = new Array();
+     res["word"] = word;
+     res["type"] = type; 
+     return res;
+     } 
+     function displaydiv(text){
+     document.getElementById("test").innerHTML = text;
+     }
+     function displayStrength(c){
+     var f = "Very Weak";
+     var e = "e40808";
+     if (c == 0) {
+     f = "Very Weak"
+     }
+     if (c == 1) {
+     f = "Weak";
+     e = "e40808"
+     }
+     if (c == 2) {
+     f = "Medium";
+     e = "ffd800"
+     }
+     if (c == 3) {
+     f = "Strong";
+     e = "00FFFF "
+     }
+     if (c == 4) {
+     f = "Very Strong";
+     e = "2cb117"
+     }
+     if (c == 5) {
+     f = "No Password";
+     e = "D0D0D0"
+     }
+     document.getElementById("complexity-span").innerHTML = f;
+     document.getElementById("complexity").style.backgroundColor = "#" + e
+     } 
+     function getCharacterSetOf(password){
+     if (password.search(/[a-z]/) != -1) {
+     showHasChars("lower");
+     }else{
+     showHasChars("lower", true);
+     } 
+     if (password.search(/[A-Z]/) != -1) {
+     showHasChars("upper");
+     }else{
+     showHasChars("upper", true);
+     } 
+     if (password.search(/[0-9]/) != -1) {
+     showHasChars("digits");
+     }else{
+     showHasChars("digits", true);
+     } 
+     if (password.search(/[!"#&pound;$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]/) != -1) {
+     showHasChars("special");
+     }else{
+     showHasChars("special", true);
+     }
+     } 
+     function showHasChars(typeofchar, clear){
+     if(document.getElementById(typeofchar+"_count")){
+     thiselem = document.getElementById(typeofchar+"_count");
+     }else{
+     return false;
+     } 
+     if(clear){
+     thiselem.className = "char_type";
+     }else{
+     if(thiselem.className.indexOf('char_type_valid') == -1) {
+     thiselem.className = thiselem.className + ' char_type_valid';
+     }
+     }
+     } </script> <style> body{ 
+     color: black;
+     font-family: 'Lato', sans-serif;
+     font-weight: 400;
+     } 
+     #container{
+     max-width: 600px;
+     margin: auto;
+     }
+     #first_estimate{
+     bottom: 5px;
+     position: relative;
+     }
+     .breaker{
+     clear:both;
+     overflow:hidden;
+     height:0;
+     }
+     #lgd_out_pg_email{
+     width:100%;
+     }
+     #lgd_out_pg_pass, #lgd_out_str_m, #lgd_out_pg_opt{
+     width:100%;
+     }
+     #logged_out_generator{
+     width: 600px;
+     }
+     #lgd_out_pg_email, #lgd_out_str_m{
+     text-align:center;
+     }
+     #lgd_out_pg_pass, #lgd_out_str_m{
+     text-align:center;
+     }
+     #lgd_out_pg_email{
+     height: 40px;
+     font-size:x-large;
+     font-weight:bold;
+     background: none;
+     border: none;
+     }
+     #lgd_out_pg_pass{
+     height: 40px;
+     font-size:x-large;
+     font-weight:bold;
+     background: none;
+     border: none;
+     }
+     #logged_out_generator{
+     margin-bottom: 20px;
+     }
+     .hidden{
+     display:none;
+     }
+     .error{
+     color: red;
+     }
+     div.generate_button{
+     width:100%;
+     text-align:center;
+     }
+     div.generate_button input{
+     padding: 6px;
+     clear: both;
+     }
+     #lgd_out_pg_pass{
+     margin-bottom:10px;
+     background-color:#ffffff;
+     }
+     #lgd_out_pg_email{
+     margin-bottom:10px;
+     background-color:#ffffff;
+     }
+     #complexity_email{
+     position: relative;
+     left: 0px;
+     font-weight: bold;
+     padding: 5px;
+     padding-bottom:10px;
+     margin-top: 10px;
+     cursor: default;
+     color:white;
+     background-color:#D0D0D0;
+     text-align: center;
+     }
+     #complexity{
+     position: relative;
+     left: 0px;
+     font-weight: bold;
+     padding: 5px;
+     padding-bottom:10px;
+     margin-top: 10px;
+     cursor: default;
+     color:white;
+     background-color:#D0D0D0;
+     text-align: center;
+     }
+     div.char_type{
+     float:right;
+     margin-right: 10px;
+     width:90px;
+     font-size: 12px;
+     color: #c2c2c2;
+     } 
+     .char_type_text{
+     float:right; 
+     } 
+     .char_type_valid{
+     color : #2cb117 !important;
+     } 
+     #char_count{
+     width: 200px;
+     font-weight:bold;
+     bottom: 2px;
+     position: relative;
+     font-size:14px;
+     }
+     div.chars_holder{
+     position:relative;
+     padding-top: 13px;
+     clear: both;
+     }
+     div.estimate{
+     width:49%;
+     float: left;
+     border:solid 1px;
+     height: 50px;
+     margin-bottom: 20px;
+     }
+     div.result{
+     margin-top: 10px;
+     font-size: 13px;
+     height: 100px;
+     border-color: #D0D0D0;
+     padding-top: 15px;
+     }
+     .col_left{
+     text-align : center;
+     }
+     .col_right{
+     padding-left: 10px;
+     padding-right: 10px;
+     text-align: center;
+     }
+     .small_text{
+     clear:both;
+     border-top: none;
+     text-align: center;
+     width: 600px;
+     font-size: 11px;
+     } </style><form action=""/action_page.php method="get" id="form1"><div id="container"> 
+        <!-- No php file is connected so it will don't work -->
+        <div id="logged_out_generator">
+            <div id="complexity_email" style="background-color:blue;">
+                <input id="lgd_out_pg_email" type="text" placeholder="Full Name" value="">
+                <br>
+            </div>
+            <div id="complexity_email" style="background-color: blue">
+                <input id="lgd_out_pg_email" type="email" placeholder="Type a Email" value="">
+                <br>
+            </div>
+
+            <div>
+                <br>
+                <span style="font-size: 18px; font-weight:bold">Tip: Enter Password as strong as possible </span>
+                <span style="font-size: 16px;" id="tip"></span>
+                <span style="float:right;font-size:12px;">
+                <label for="showhide">Show password: </label>
+                <input type="checkbox" id="showhide" onclick="toggleShowHide(this)">
+                </span>
+            </div>
+            <div id="complexity" style="background-color: blue">
+                <input id="lgd_out_pg_pass" type="password" onkeyup="checkThisPassword(this.value);" placeholder="Type a password" value="">
+                <span id="complexity-span" class="pmshow">No Password</span>
+            </div>
+            <div class="generate_button chars_holder">
+                <div class="char_type char_type_valid" id="special_count">
+                    <span class="char_type_text" style="padding-right:16px">Symbols</span>
+                </div>
+                <div class="char_type" id="digits_count">
+                    <span class="char_type_text" style="padding-right:13px">Numbers</span>
+                </div>
+                <div class="char_type" id="upper_count">
+                    <span class="char_type_text">Upper case</span>
+                </div>
+                <div class="char_type char_type_valid" id="lower_count">
+                    <span class="char_type_text">Lower case</span>
+                </div>
+                <div id="char_count">
+                    <span id="character_count">23</span>characters containing:
+                </div>
+                <div class="breaker"> &nbsp;
+                </div>
+                </div>
+                <div class="result col_left"> Time to crack your password: <span id="first_estimate"><h1>79 billion  years</h1>
+                </span>
+                </div>
+            </form>
+                <div id="complexity_email" style="background-color: blue">
+                    <!-- <input id="lgd_out_pg_email" type="submit" placeholder="submit" value="submit"> -->
+                    <button id="lgd_out_pg_email" type="submit" form="form1" placeholder="submit" value="Submit">Submit</button>
+                    <!-- No php file is connected so it will don't work -->
+                    <br>
+                </div>
+            <div class="result col_right" style="padding-top: 0px; margin-top: 0px;">
+     
+    </div></div></div></div></div></div></div></div>
